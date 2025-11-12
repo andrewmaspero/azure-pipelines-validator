@@ -34,7 +34,7 @@ wheels = [
 ]
 
 [[package]]
-name = "azure-pipelines-validator"
+name = "azure-pipeline-validator"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

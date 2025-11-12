@@ -26,12 +26,12 @@ dependencies = [
 ]
 
 [project.scripts]
-azure-pipelines-validator = "azure_pipelines_validator.cli:app"
+azure-pipeline-validator = "azure_pipelines_validator.cli:app"
 
 [project.urls]
-homepage = "https://github.com/andrewmaspero/azure-pipelines-validator"
-repository = "https://github.com/andrewmaspero/azure-pipelines-validator"
-issues = "https://github.com/andrewmaspero/azure-pipelines-validator/issues"
+homepage = "https://github.com/andrewmaspero/azure-pipeline-validator"
+repository = "https://github.com/andrewmaspero/azure-pipeline-validator"
+issues = "https://github.com/andrewmaspero/azure-pipeline-validator/issues"
 
 [build-system]
 requires = ["hatchling"]

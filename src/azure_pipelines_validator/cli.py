@@ -98,10 +98,10 @@ def validate(
     """Validate Azure Pipelines YAML locally before committing.
 
     Examples:
-        uv run azure-pipelines-validator validate .
+        uv run azure-pipeline-validator validate .
 
-        uvx --from git+https://github.com/your-org/azure-pipelines-validator \
-            azure-pipelines-validator workflows/
+        uvx --from git+https://github.com/your-org/azure-pipeline-validator \
+            azure-pipeline-validator workflows/
     """
 
     console = Console()

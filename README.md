@@ -1,4 +1,4 @@
-# Azure Pipelines Validator
+# Azure Pipeline Validator
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](pyproject.toml)
@@ -6,7 +6,7 @@
 [![Lint](https://img.shields.io/badge/Lint-Ruff-000000?logo=ruff&logoColor=white)](https://docs.astral.sh/ruff/)
 [![CI Ready](https://img.shields.io/badge/CI-Azure%20Pipelines-0078D7?logo=azure-devops&logoColor=white)](#ci-integration)
 
-`azure-pipelines-validator` is a batteries‑included Azure DevOps YAML inspector that runs the same validations you rely on in the service, but locally. It combines three feedback loops:
+`azure-pipeline-validator` is a batteries‑included Azure DevOps YAML inspector that runs the same validations you rely on in the service, but locally. It combines three feedback loops:
 
 1. **yamllint** – fast structural linting using a tuned configuration for Azure Pipelines quirks.
 2. **JSON Schema** – offline validation against Microsoft’s published schema (`/distributedtask/yamlschema`).
@@ -16,7 +16,7 @@ The CLI understands both single files and whole repositories, wraps templates au
 
 ## Table of contents
 
-- [Azure Pipelines Validator](#azure-pipelines-validator)
+- [Azure Pipeline Validator](#azure-pipeline-validator)
   - [Table of contents](#table-of-contents)
   - [Features](#features)
   - [Installation \& invocation](#installation--invocation)
@@ -44,30 +44,30 @@ The CLI understands both single files and whole repositories, wraps templates au
 Local development (inside this repo):
 
 ```bash
-cd /path/to/azure-pipelines-validator
-uv run azure-pipelines-validator --help
+cd /path/to/azure-pipeline-validator
+uv run azure-pipeline-validator --help
 ```
 
 Published usage via `uvx` (no clone required):
 
 ```bash
-uvx azure-pipelines-validator --help
+uvx azure-pipeline-validator --help
 ```
 
 Global install with uv (install once, use anywhere):
 
 ```bash
-uv tool install git+https://github.com/andrewmaspero/azure-pipelines-validator.git
-azure-pipelines-validator --help
+uv tool install git+https://github.com/andrewmaspero/azure-pipeline-validator.git
+azure-pipeline-validator --help
 ```
 
 Once published to PyPI, you can also use:
 ```bash
-uv tool install azure-pipelines-validator
-azure-pipelines-validator --help
+uv tool install azure-pipeline-validator
+azure-pipeline-validator --help
 ```
 
-Pip install will also work once published (`pip install azure-pipelines-validator`).
+Pip install will also work once published (`pip install azure-pipeline-validator`).
 
 ## Required environment
 
@@ -89,7 +89,7 @@ Export the same variables you would in an Azure Pipelines job:
 Validate the entire repo and show every check:
 
 ```bash
-uv run azure-pipelines-validator validate . \
+uv run azure-pipeline-validator validate . \
   --repo-root $(pwd) \
   --run-preview --run-schema --run-yamllint
 ```
@@ -97,20 +97,20 @@ uv run azure-pipelines-validator validate . \
 Validate a single template file and skip schema:
 
 ```bash
-uv run azure-pipelines-validator validate common/templates/steps/build.yml \
+uv run azure-pipeline-validator validate common/templates/steps/build.yml \
   --skip-schema
 ```
 
 Run preview only (fast structural checks off):
 
 ```bash
-uv run azure-pipelines-validator validate workflows/ --skip-yamllint --skip-schema
+uv run azure-pipeline-validator validate workflows/ --skip-yamllint --skip-schema
 ```
 
 ## CLI reference
 
 ```text
-Usage: azure-pipelines-validator [OPTIONS] [PATH]
+Usage: azure-pipeline-validator [OPTIONS] [PATH]
 
 Run yamllint, schema validation, and Azure preview against YAML files.
 
@@ -157,7 +157,7 @@ Add a job that installs uv, exports `AZDO_*`, and runs the command. When running
 
     - script: |
         uv tool install azure-pipeline-validator
-        azure-pipelines-validator workflows/
+        azure-pipeline-validator workflows/
       env:
         AZDO_ORG: $(System.TeamFoundationCollectionUri)
         AZDO_PROJECT: $(System.TeamProject)
@@ -201,7 +201,7 @@ The package is published to PyPI automatically via GitHub Actions when a new tag
    - Fill in:
      - **PyPI project name**: `azure-pipeline-validator`
      - **Owner**: `andrewmaspero` (your GitHub username)
-     - **Repository name**: `azure-pipelines-validator`
+     - **Repository name**: `azure-pipeline-validator`
      - **Workflow filename**: `pipeline.yml`
      - **Environment name**: `pypi` (optional but recommended)
    - Click "Add trusted publisher"
@@ -225,11 +225,11 @@ uvx azure-pipeline-validator --help
 
 # Or install globally
 uv tool install azure-pipeline-validator
-azure-pipelines-validator --help
+azure-pipeline-validator --help
 
 # Or with pip
 pip install azure-pipeline-validator
-azure-pipelines-validator --help
+azure-pipeline-validator --help
 ```
 
 For manual publishing, use uv directly:
@@ -256,4 +256,4 @@ Feel free to fork, contribute improvements, or publish your own build. This READ
 
 ## License
 
-`azure-pipelines-validator` is open source software released under the [MIT License](LICENSE). Contributions are welcome—just open an issue or pull request so we can review changes together.
+`azure-pipeline-validator` is open source software released under the [MIT License](LICENSE). Contributions are welcome—just open an issue or pull request so we can review changes together.
