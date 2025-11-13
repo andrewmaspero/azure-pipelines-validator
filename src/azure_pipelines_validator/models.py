@@ -117,6 +117,7 @@ class FileValidationResult:
 @dataclass(slots=True)
 class ValidationSummary:
     results: Sequence[FileValidationResult]
+    options: ValidationOptions
 
     @property
     def success(self) -> bool:

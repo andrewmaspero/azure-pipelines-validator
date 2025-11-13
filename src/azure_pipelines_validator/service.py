@@ -63,7 +63,7 @@ class ValidationService:
             results.append(result)
             if options.fail_fast and not result.is_successful:
                 break
-        return ValidationSummary(tuple(results))
+        return ValidationSummary(results=tuple(results), options=options)
 
     def _run_lint(
         self, document: YamlDocument, options: ValidationOptions
